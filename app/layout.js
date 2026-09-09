@@ -1,14 +1,18 @@
 import "./globals.css";
+import SiteNav from "./SiteNav";
 
 export const metadata = {
-  title: "Günlük Kupon | Touba",
+  title: "Touba | Günlük Kupon",
   description: "Günlük otomatik kupon önerileri",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="tr">
-      <body>{children}</body>
+      <body>
+        <SiteNav />
+        {children}
+      </body>
     </html>
   );
 }

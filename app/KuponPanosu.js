@@ -12,6 +12,7 @@ function saatFormatla(iso) {
   });
 }
 
+// Tek bir maç için okunur bir analiz metni üretir.
 function macAnaliziOlustur(mac) {
   const { evSahibi, misafir, evSahibiSira, misafirSira, secilenTaraf, secilenEtiket, siraFarki, lig } = mac;
 
@@ -42,9 +43,13 @@ function macAnaliziOlustur(mac) {
   };
 }
 
+// Tahmin listesinden "kupon" nesneleri üretir: hem tekli (1 maçlık)
+// hem de kombine (birden fazla maçı birleştiren) kuponlar.
+// En az bir kombine kupon 3 maçlı olacak şekilde önceliklendirilir.
 function kuponlariOlustur(tahminler, limit = 10) {
   const kuponlar = [];
 
+  // Kombine kuponlar (varsa 3 maçlı olan öncelikli olacak şekilde ekleniyor).
   const kombineBoyutlari = [3, 2, 4, 5].filter((n) => n <= tahminler.length);
   for (const n of kombineBoyutlari) {
     const secilenler = tahminler.slice(0, n);
@@ -55,6 +60,7 @@ function kuponlariOlustur(tahminler, limit = 10) {
     });
   }
 
+  // Tekli kuponlar (her maç kendi başına bir kupon).
   for (const mac of tahminler) {
     kuponlar.push({
       id: `tekli-${mac.fixtureId}`,

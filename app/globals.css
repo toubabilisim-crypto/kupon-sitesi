@@ -91,6 +91,8 @@ body {
   font-weight: 600;
 }
 
+/* ---- Sol sekme + içerik düzeni ---- */
+
 .govde {
   display: flex;
   gap: 32px;
@@ -192,6 +194,8 @@ body {
   line-height: 1.5;
 }
 
+/* ---- Kupon kartları ---- */
+
 .kupon-izgara {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -272,6 +276,8 @@ body {
   font-weight: 600;
 }
 
+/* ---- Analiz paneli ---- */
+
 .analiz-panel {
   margin-top: 16px;
   background: var(--yuzey);
@@ -326,6 +332,8 @@ body {
   color: var(--renk);
 }
 
+/* ---- Diğer ---- */
+
 .bos-durum {
   font-size: 14px;
   color: var(--ink-soluk);
@@ -345,6 +353,8 @@ body {
   line-height: 1.6;
   color: var(--ink-yumusak);
 }
+
+/* ---- Kombine kupon ---- */
 
 .kombine-kart {
   border-style: dashed;
@@ -424,4 +434,150 @@ body {
   font-size: 13px;
   color: var(--ink-yumusak);
   line-height: 1.5;
+}
+
+/* ---- Üst menü (site navigasyonu) ---- */
+
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: linear-gradient(135deg, #0b0d10 0%, #14181c 50%, #1a1420 100%);
+  border-bottom: 1px solid var(--cizgi);
+}
+
+.site-nav-ic {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.site-logo {
+  font-weight: 800;
+  font-size: 18px;
+  color: var(--ink);
+  text-decoration: none;
+  background: linear-gradient(90deg, #22c55e, #f2b134);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.site-nav-linkler {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+}
+
+.site-nav-link {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink-yumusak);
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 999px;
+  white-space: nowrap;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.site-nav-link:hover {
+  color: var(--ink);
+  background: var(--yuzey);
+}
+
+.site-nav-link.aktif {
+  color: var(--ink);
+  background: var(--yuzey2);
+}
+
+/* ---- Sayfa üst bölümü (hero) ---- */
+
+.sayfa-hero {
+  padding: 48px 0 8px;
+}
+
+.baslik-gradyan {
+  background: linear-gradient(90deg, #f1f2f4 20%, #9a9ea5 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ---- Günün Maçları sayfası ---- */
+
+.lig-blok {
+  margin-top: 32px;
+}
+
+.lig-blok-baslik {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--cizgi);
+}
+
+.mac-liste {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mac-liste-satir {
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--cizgi);
+  font-size: 14px;
+}
+
+.mac-liste-satir:last-child {
+  border-bottom: none;
+}
+
+.mac-liste-saat {
+  font-weight: 700;
+  color: var(--kasa);
+  flex-shrink: 0;
+  width: 90px;
+}
+
+.mac-liste-takimlar {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* ---- Editör Yorumları sayfası ---- */
+
+.yorum-liste {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.yorum-karti {
+  background: var(--yuzey);
+  border: 1px solid var(--cizgi);
+  border-radius: 16px;
+  padding: 22px 24px;
+}
+
+.yorum-karti-ust {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.yorum-karti-baslik {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 10px;
 }

@@ -39,6 +39,10 @@ function tarihFormatla(iso) {
   });
 }
 
+// Her sayfa (/, /orta-risk, /yuksek-oran) bu bileşeni kullanır,
+// sadece hangi sekmenin aktif olduğunu belirtir. Veri her sayfada
+// yeniden çekilir (KV'den), böylece her biri gerçekten bağımsız
+// bir sayfa (ayrı URL, ayrı istek) olur.
 export default async function SayfaCekirdek({ aktifYol }) {
   const veri = await kv.get("coupons:latest");
   const sekme = SEKMELER.find((s) => s.yol === aktifYol);

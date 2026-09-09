@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { macAnaliziOlustur } from "../lib/analiz";
 
 function saatFormatla(iso) {
   const d = new Date(iso);
@@ -10,36 +11,6 @@ function saatFormatla(iso) {
     hour: "2-digit",
     minute: "2-digit",
   });
-}
-
-function macAnaliziOlustur(mac) {
-  const { evSahibi, misafir, evSahibiSira, misafirSira, secilenTaraf, secilenEtiket, siraFarki, lig } = mac;
-
-  if (secilenTaraf === "X") {
-    return {
-      metin: `${evSahibi} (${evSahibiSira}. sıra) ve ${misafir} (${misafirSira}. sıra), ${lig} sıralamasında birbirine çok yakın konumda. Net bir favori öne çıkmıyor.`,
-      oneri: "Net bir favori barındırmıyor — temkinli değerlendirilmeli.",
-    };
-  }
-
-  const favori = secilenEtiket;
-  const favoriSira = secilenTaraf === "1" ? evSahibiSira : misafirSira;
-  const rakip = secilenTaraf === "1" ? misafir : evSahibi;
-  const rakipSira = secilenTaraf === "1" ? misafirSira : evSahibiSira;
-
-  let seviye;
-  if (siraFarki >= 8) {
-    seviye = "büyük bir fark var — oldukça net bir favori";
-  } else if (siraFarki >= 3) {
-    seviye = "orta seviyede bir fark var — favori belirgin ama sürpriz ihtimali de var";
-  } else {
-    seviye = "küçük bir fark var — favori olsa da sürpriz riski yüksek";
-  }
-
-  return {
-    metin: `${favori}, ${lig} sıralamasında ${favoriSira}. sırada yer alırken rakibi ${rakip} ${rakipSira}. sırada. Aralarında ${siraFarki} sıralık fark var: ${seviye}.`,
-    oneri: `${secilenTaraf} (${favori} kazanır) yönünde değerlendirilebilir.`,
-  };
 }
 
 function kuponlariOlustur(tahminler, limit = 10) {

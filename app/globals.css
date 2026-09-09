@@ -199,3 +199,165 @@ body {
   line-height: 1.6;
   color: #47433b;
 }
+/* ---- Kupon kartları (tıklanabilir, analiz açan) ---- */
+
+.kategori-blok {
+  background: var(--cizgi);
+  padding: 28px 22px 32px;
+}
+
+.kategori-baslik {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border-top: 5px solid var(--renk);
+  padding-top: 14px;
+  margin-bottom: 6px;
+}
+
+.kategori-baslik h2 {
+  font-family: "Oswald", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.kategori-baslik span {
+  font-family: "Oswald", sans-serif;
+  font-size: 13px;
+  color: #6b6459;
+}
+
+.kategori-aciklama {
+  font-size: 14px;
+  color: #57534a;
+  margin: 0 0 20px;
+  line-height: 1.5;
+}
+
+.kupon-izgara {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 12px;
+}
+
+.kupon-kart {
+  display: flex;
+  background: #fffdf9;
+  border: 1px solid rgba(26, 31, 28, 0.14);
+  border-left: 6px solid var(--renk);
+  cursor: pointer;
+  text-align: left;
+  padding: 0;
+  font-family: inherit;
+  color: inherit;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.kupon-kart:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(26, 31, 28, 0.12);
+}
+
+.kupon-kart.secili {
+  box-shadow: 0 6px 14px rgba(26, 31, 28, 0.18);
+  transform: translateY(-2px);
+}
+
+.kupon-kart-ic {
+  padding: 14px 14px 12px;
+  width: 100%;
+}
+
+.kupon-lig {
+  font-family: "Oswald", sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #8a8375;
+  margin-bottom: 8px;
+}
+
+.kupon-takim {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.kupon-vs {
+  font-family: "Oswald", sans-serif;
+  font-size: 11px;
+  color: #a39d8f;
+  margin: 3px 0;
+}
+
+.kupon-alt {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  font-family: "Oswald", sans-serif;
+  font-size: 12px;
+  color: #57534a;
+}
+
+.kupon-secim-etiketi {
+  font-weight: 700;
+  color: var(--renk);
+}
+
+.kupon-saat {
+  color: #8a8375;
+}
+
+.analiz-panel {
+  margin-top: 18px;
+  background: #fffdf9;
+  border: 1px solid rgba(26, 31, 28, 0.14);
+  border-left: 6px solid var(--renk);
+  padding: 18px 20px;
+}
+
+.analiz-panel-baslik {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 10px;
+}
+
+.analiz-panel-baslik h3 {
+  font-family: "Oswald", sans-serif;
+  font-size: 16px;
+  margin: 0;
+}
+
+.analiz-kapat {
+  font-family: "Oswald", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.3px;
+  background: none;
+  border: none;
+  color: #8a8375;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.analiz-kapat:hover {
+  color: var(--metin);
+}
+
+.analiz-metin {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #33302a;
+  margin: 0;
+}
+
+.analiz-oneri {
+  margin-top: 12px;
+  font-family: "Oswald", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  color: var(--renk);
+}

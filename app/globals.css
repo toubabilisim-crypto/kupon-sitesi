@@ -50,3 +50,136 @@ body {
   font-size: 14px;
   font-weight: 600;
   color: var(--ink-yumusak);
+/* ---- Sekmeler ---- */
+
+.sekme-cubugu {
+  display: flex;
+  gap: 8px;
+  margin-top: 28px;
+  border-bottom: 1px solid var(--cizgi);
+  overflow-x: auto;
+}
+
+.sekme-buton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  padding: 12px 6px 14px;
+  margin-right: 20px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink-soluk);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.sekme-buton:hover {
+  color: var(--ink);
+}
+
+.sekme-buton.aktif {
+  color: var(--ink);
+  border-bottom-color: var(--renk);
+}
+
+.sekme-sayi {
+  font-size: 12px;
+  font-weight: 700;
+  background: var(--bg);
+  color: var(--ink-soluk);
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+.sekme-buton.aktif .sekme-sayi {
+  color: var(--renk);
+  background: color-mix(in srgb, var(--renk) 12%, white);
+}
+
+.sekme-aciklama {
+  margin-top: 16px;
+}
+
+/* ---- Kombine kupon ---- */
+
+.kombine-kart {
+  border-style: dashed;
+}
+
+.kombine-liste {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.kombine-liste li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed var(--cizgi);
+}
+
+.kombine-liste li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.kombine-takimlar {
+  flex: 1;
+  min-width: 0;
+}
+
+.kombine-etiket {
+  font-size: 11px;
+  padding: 2px 7px;
+  flex-shrink: 0;
+}
+
+.kupon-alt-kombine {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 10px;
+  justify-content: flex-end;
+}
+
+.kombine-uyari {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-soluk);
+}
+
+.analiz-mac-blok {
+  padding: 12px 0;
+  border-top: 1px solid var(--cizgi);
+}
+
+.analiz-mac-blok:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+
+.analiz-mac-baslik {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.analiz-genel-uyari {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--cizgi);
+  font-size: 13px;
+  color: var(--ink-yumusak);
+  line-height: 1.5;
+}

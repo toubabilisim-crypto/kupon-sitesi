@@ -1,5 +1,4 @@
 import { kv } from "@vercel/kv";
-import { macAnaliziOlustur } from "../../lib/analiz";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -16,6 +15,7 @@ function saatFormatla(iso) {
 
 export default async function Page() {
   const veri = await kv.get("coupons:latest");
+  const yorumlar = (await kv.get("editorYorumlari")) || {};
 
   const hepsi = [
     ...(veri?.kasa || []),
@@ -32,9 +32,7 @@ export default async function Page() {
         <p className="marka">Editör Bakışı</p>
         <h1 className="baslik baslik-gradyan">Editör Yorumları</h1>
         <p className="alt-baslik">
-          Günün maçları için hazırlanan detaylı yorumlar — lig sıralaması ve
-          form durumuna dayalı istatistiksel değerlendirmedir, kesin sonuç
-          garantisi taşımaz.
+          Günün maçları için editörlerimiz tarafından hazırlanan yorumlar.
         </p>
       </div>
 
@@ -45,7 +43,7 @@ export default async function Page() {
       ) : (
         <div className="yorum-liste">
           {benzersiz.map((mac) => {
-            const { metin, oneri } = macAnaliziOlustur(mac);
+            const yorum = yorumlar[mac.fixtureId];
             return (
               <article key={mac.fixtureId} className="yorum-karti">
                 <div className="yorum-karti-ust">
@@ -57,10 +55,13 @@ export default async function Page() {
                 <h2 className="yorum-karti-baslik">
                   {mac.evSahibi} — {mac.misafir}
                 </h2>
-                <p className="analiz-metin">{metin}</p>
-                <p className="analiz-oneri" style={{ color: "var(--kasa)" }}>
-                  {oneri}
-                </p>
+                {yorum ? (
+                  <p className="analiz-metin">{yorum}</p>
+                ) : (
+                  <p className="yorum-bos">
+                    Bu maç için henüz editör yorumu eklenmedi.
+                  </p>
+                )}
               </article>
             );
           })}

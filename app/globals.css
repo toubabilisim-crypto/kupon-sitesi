@@ -575,9 +575,105 @@ body {
   margin-bottom: 10px;
 }
 
-.yorum-karti-baslik {
-  font-size: 18px;
+.kupon-ek-etiketler {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.mini-etiket {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--ink-yumusak);
+  background: var(--bg);
+  border: 1px solid var(--cizgi);
+  padding: 3px 8px;
+  border-radius: 999px;
+}
+
+.yorum-bos {
+  font-size: 14px;
+  color: var(--ink-soluk);
+  font-style: italic;
+  margin: 0;
+}
+
+.editor-sifre-kutusu {
+  margin-top: 24px;
+  max-width: 320px;
+}
+
+.editor-etiket {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-yumusak);
+  margin-bottom: 6px;
+}
+
+.editor-input,
+.editor-textarea {
+  width: 100%;
+  background: var(--yuzey);
+  border: 1px solid var(--cizgi);
+  border-radius: 10px;
+  color: var(--ink);
+  padding: 10px 12px;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.editor-textarea {
+  resize: vertical;
+  margin-top: 10px;
+}
+
+.editor-mac-liste {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.editor-mac-karti {
+  background: var(--yuzey);
+  border: 1px solid var(--cizgi);
+  border-radius: 16px;
+  padding: 18px 20px;
+}
+
+.editor-mac-baslik {
+  display: flex;
+  justify-content: space-between;
   font-weight: 700;
   color: var(--ink);
-  margin: 0 0 10px;
+  margin-bottom: 10px;
+}
+
+.editor-mac-alt {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.editor-kaydet-buton {
+  background: var(--kasa);
+  color: #0b0d10;
+  border: none;
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.editor-kaydet-buton:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.editor-durum {
+  font-size: 12px;
+  color: var(--ink-soluk);
 }

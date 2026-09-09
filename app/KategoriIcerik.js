@@ -52,6 +52,12 @@ function KuponBaslikIcerik({ kupon }) {
           </span>
           <span className="kupon-saat">{saatFormatla(mac.saat)}</span>
         </div>
+        {(mac.altUst || mac.kg) && (
+          <div className="kupon-ek-etiketler">
+            {mac.altUst && <span className="mini-etiket">{mac.altUst}</span>}
+            {mac.kg && <span className="mini-etiket">KG {mac.kg}</span>}
+          </div>
+        )}
       </>
     );
   }

@@ -1,0 +1,201 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap");
+
+:root {
+  --saha: #0f3d2e;
+  --saha-koyu: #0a2b20;
+  --cizgi: #e9e4d8;
+  --isik: #f2b134;
+  --kasa: #2f6f4f;
+  --orta: #d98f2b;
+  --yuksek: #c0503a;
+  --metin: #1a1f1c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--cizgi);
+  color: var(--metin);
+  font-family: "Source Serif 4", Georgia, serif;
+}
+
+.sayfa {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+
+.ust-bant {
+  background: var(--saha);
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.03) 0px,
+    rgba(255, 255, 255, 0.03) 1px,
+    transparent 1px,
+    transparent 80px
+  );
+  color: var(--cizgi);
+  padding: 48px 24px 40px;
+  margin-bottom: 8px;
+  border-bottom: 4px solid var(--isik);
+}
+
+.ust-bant-ic {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.marka {
+  font-family: "Oswald", sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  font-size: 15px;
+  text-transform: uppercase;
+  color: var(--isik);
+  margin: 0 0 12px;
+}
+
+.baslik {
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 1.05;
+  margin: 0 0 12px;
+  max-width: 20ch;
+}
+
+.alt-baslik {
+  font-size: 17px;
+  max-width: 46ch;
+  color: rgba(233, 228, 216, 0.85);
+  margin: 0;
+}
+
+.guncelleme-satiri {
+  margin-top: 28px;
+  font-family: "Oswald", sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.3px;
+  color: rgba(233, 228, 216, 0.65);
+}
+
+.gruplar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(26, 31, 28, 0.15);
+  margin-top: 32px;
+}
+
+@media (max-width: 860px) {
+  .gruplar {
+    grid-template-columns: 1fr;
+  }
+}
+
+.grup {
+  background: var(--cizgi);
+  padding: 28px 22px 20px;
+}
+
+.grup-baslik {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border-top: 5px solid var(--renk);
+  padding-top: 14px;
+  margin-bottom: 6px;
+}
+
+.grup-baslik h2 {
+  font-family: "Oswald", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.grup-baslik span {
+  font-family: "Oswald", sans-serif;
+  font-size: 13px;
+  color: #6b6459;
+}
+
+.grup-aciklama {
+  font-size: 14px;
+  color: #57534a;
+  margin: 0 0 20px;
+  line-height: 1.5;
+}
+
+.mac-listesi {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mac {
+  padding: 14px 0;
+  border-top: 1px solid rgba(26, 31, 28, 0.12);
+}
+
+.mac:first-child {
+  border-top: none;
+}
+
+.mac-lig {
+  font-family: "Oswald", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.4px;
+  color: #8a8375;
+  margin-bottom: 4px;
+}
+
+.mac-takimlar {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.mac-alt-satir {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Oswald", sans-serif;
+  font-size: 13px;
+  color: #57534a;
+}
+
+.mac-secim {
+  font-weight: 600;
+}
+
+.mac-oran {
+  font-weight: 700;
+  color: var(--metin);
+  background: rgba(26, 31, 28, 0.08);
+  padding: 2px 8px;
+  border-radius: 3px;
+}
+
+.bos-durum {
+  font-size: 14px;
+  color: #8a8375;
+  padding: 24px 0;
+  text-align: center;
+  border-top: 1px dashed rgba(26, 31, 28, 0.2);
+}
+
+.alt-not {
+  margin-top: 40px;
+  padding: 20px 22px;
+  background: rgba(26, 31, 28, 0.05);
+  border-left: 3px solid var(--isik);
+  font-size: 14px;
+  line-height: 1.6;
+  color: #47433b;
+}

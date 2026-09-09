@@ -1,6 +1,7 @@
 import { kv } from "@vercel/kv";
 
 export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 function tarihFormatla(iso) {
   if (!iso) return "";

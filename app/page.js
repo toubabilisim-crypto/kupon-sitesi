@@ -23,14 +23,15 @@ function MacSatiri({ mac }) {
     <li className="mac">
       <div className="mac-lig">{mac.lig}</div>
       <div className="mac-takimlar">
-        {mac.evSahibi} — {mac.misafir}
+        {mac.evSahibi} ({mac.evSahibiSira}. sıra) — {mac.misafir} (
+        {mac.misafirSira}. sıra)
       </div>
       <div className="mac-alt-satir">
         <span className="mac-secim">
           {mac.secilenTaraf} · {mac.secilenEtiket}
         </span>
         <span>
-          <span className="mac-oran">{mac.oran.toFixed(2)}</span>{" "}
+          <span className="mac-oran">{mac.siraFarki} sıra fark</span>{" "}
           {saatFormatla(mac.saat)}
         </span>
       </div>
@@ -69,8 +70,9 @@ export default async function Page() {
           <p className="marka">Touba · Günlük Kupon</p>
           <h1 className="baslik">Bugünün kupon önerileri</h1>
           <p className="alt-baslik">
-            Oranlara ve form durumuna göre otomatik olarak hazırlanan, üç
-            risk seviyesine ayrılmış tekli kupon önerileri.
+            Lig sıralamalarına göre otomatik olarak hazırlanan, üç risk
+            seviyesine ayrılmış tekli kupon önerileri. (Gerçek bahis oranı
+            değil, sıralama farkına dayalı istatistiksel bir yaklaşımdır.)
           </p>
           {veri && (
             <p className="guncelleme-satiri">
@@ -91,19 +93,19 @@ export default async function Page() {
           <div className="gruplar">
             <Grup
               baslik="Kasa"
-              aciklama="Düşük oranlı, en net favorilerden oluşan seçimler."
+              aciklama="Lig sıralamasında büyük fark olan, net favori takımlardan oluşan seçimler."
               renk="var(--kasa)"
               maclar={veri.kasa}
             />
             <Grup
               baslik="Orta Risk"
-              aciklama="Orta seviye oranlı, dengeli seçimler."
+              aciklama="Orta seviye sıralama farkı olan, dengeli seçimler."
               renk="var(--orta)"
               maclar={veri.ortaRisk}
             />
             <Grup
               baslik="Yüksek Oran"
-              aciklama="Daha sürpriz sonuç olasılığı taşıyan, yüksek oranlı seçimler."
+              aciklama="Sıralaması birbirine yakın, sürpriz sonuç olasılığı taşıyan seçimler."
               renk="var(--yuksek)"
               maclar={veri.yuksekOran}
             />

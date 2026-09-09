@@ -222,8 +222,8 @@ export default function KuponPanosu({ veri }) {
   const sekme = SEKMELER.find((s) => s.anahtar === aktifSekme);
 
   return (
-    <div>
-      <div className="sekme-cubugu">
+    <div className="govde">
+      <div className="kenar-cubugu">
         {SEKMELER.map((s) => (
           <button
             key={s.anahtar}
@@ -240,9 +240,10 @@ export default function KuponPanosu({ veri }) {
         ))}
       </div>
 
-      <p className="kategori-aciklama sekme-aciklama">{sekme.aciklama}</p>
-
-      <KategoriIcerik renk={sekme.renk} tahminler={veri[sekme.anahtar] || []} />
+      <div className="icerik-alani">
+        <p className="sekme-aciklama">{sekme.aciklama}</p>
+        <KategoriIcerik renk={sekme.renk} tahminler={veri[sekme.anahtar] || []} />
+      </div>
     </div>
   );
 }

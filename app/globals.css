@@ -50,136 +50,97 @@ body {
   font-size: 14px;
   font-weight: 600;
   color: var(--ink-yumusak);
-/* ---- Sekmeler ---- */
-
-.sekme-cubugu {
-  display: flex;
-  gap: 8px;
-  margin-top: 28px;
-  border-bottom: 1px solid var(--cizgi);
-  overflow-x: auto;
+  margin: 0 0 20px;
 }
 
-.sekme-buton {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: none;
-  border: none;
-  border-bottom: 3px solid transparent;
-  padding: 12px 6px 14px;
-  margin-right: 20px;
-  font-family: inherit;
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--ink-soluk);
-  cursor: pointer;
-  white-space: nowrap;
+.marka::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--kasa);
 }
 
-.sekme-buton:hover {
-  color: var(--ink);
+.baslik {
+  font-weight: 800;
+  font-size: clamp(30px, 4.5vw, 46px);
+  line-height: 1.1;
+  margin: 0 0 14px;
+  letter-spacing: -0.01em;
+  max-width: 20ch;
 }
 
-.sekme-buton.aktif {
-  color: var(--ink);
-  border-bottom-color: var(--renk);
-}
-
-.sekme-sayi {
-  font-size: 12px;
-  font-weight: 700;
-  background: var(--bg);
-  color: var(--ink-soluk);
-  padding: 2px 8px;
-  border-radius: 999px;
-}
-
-.sekme-buton.aktif .sekme-sayi {
-  color: var(--renk);
-  background: color-mix(in srgb, var(--renk) 12%, white);
-}
-
-.sekme-aciklama {
-  margin-top: 16px;
-}
-
-/* ---- Kombine kupon ---- */
-
-.kombine-kart {
-  border-style: dashed;
-}
-
-.kombine-liste {
-  list-style: none;
+.alt-baslik {
+  font-size: 16px;
+  line-height: 1.55;
+  max-width: 52ch;
+  color: var(--ink-yumusak);
   margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
 }
 
-.kombine-liste li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 8px;
+.guncelleme-satiri {
+  display: inline-block;
+  margin-top: 22px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: var(--kasa-zemin);
+  color: var(--kasa);
   font-size: 13px;
   font-weight: 600;
-  padding-bottom: 8px;
-  border-bottom: 1px dashed var(--cizgi);
 }
 
-.kombine-liste li:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
+.gruplar {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
 }
 
-.kombine-takimlar {
-  flex: 1;
-  min-width: 0;
+.kategori-blok {
+  padding-top: 8px;
 }
 
-.kombine-etiket {
-  font-size: 11px;
-  padding: 2px 7px;
-  flex-shrink: 0;
-}
-
-.kupon-alt-kombine {
-  border-top: none;
-  padding-top: 0;
-  margin-top: 10px;
-  justify-content: flex-end;
-}
-
-.kombine-uyari {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--ink-soluk);
-}
-
-.analiz-mac-blok {
-  padding: 12px 0;
-  border-top: 1px solid var(--cizgi);
-}
-
-.analiz-mac-blok:first-of-type {
-  border-top: none;
-  padding-top: 0;
-}
-
-.analiz-mac-baslik {
-  font-size: 14px;
-  font-weight: 700;
+.kategori-baslik {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   margin-bottom: 6px;
 }
 
-.analiz-genel-uyari {
-  margin-top: 14px;
-  padding-top: 14px;
-  border-top: 1px solid var(--cizgi);
+.kategori-baslik::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--renk);
+  flex-shrink: 0;
+}
+
+.kategori-baslik h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.kategori-baslik span {
+  margin-left: auto;
   font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-soluk);
+}
+
+.kategori-aciklama {
+  font-size: 14px;
   color: var(--ink-yumusak);
+  margin: 0 0 20px;
   line-height: 1.5;
 }
+
+.kupon-izgara {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 14px;
+}
+
+.kupon-kart {
+  display:

@@ -1,4 +1,5 @@
 import { kv } from "@vercel/kv";
+import KuponPanosu from "./KuponPanosu";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -14,58 +15,6 @@ function tarihFormatla(iso) {
   });
 }
 
-function saatFormatla(iso) {
-  const d = new Date(iso);
-  return d.toLocaleString("tr-TR", {
-    day: "2-digit",
-    month: "2-digit",
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-}
-
-function MacSatiri({ mac }) {
-  return (
-    <li className="mac">
-      <div className="mac-lig">{mac.lig}</div>
-      <div className="mac-takimlar">
-        {mac.evSahibi} ({mac.evSahibiSira}. sıra) — {mac.misafir} (
-        {mac.misafirSira}. sıra)
-      </div>
-      <div className="mac-alt-satir">
-        <span className="mac-secim">
-          {mac.secilenTaraf} · {mac.secilenEtiket}
-        </span>
-        <span>
-          <span className="mac-oran">{mac.siraFarki} sıra fark</span>{" "}
-          {saatFormatla(mac.saat)}
-        </span>
-      </div>
-    </li>
-  );
-}
-
-function Grup({ baslik, aciklama, renk, maclar }) {
-  return (
-    <div className="grup">
-      <div className="grup-baslik" style={{ "--renk": renk }}>
-        <h2>{baslik}</h2>
-        <span>{maclar.length} maç</span>
-      </div>
-      <p className="grup-aciklama">{aciklama}</p>
-      {maclar.length ? (
-        <ul className="mac-listesi">
-          {maclar.map((m) => (
-            <MacSatiri key={m.fixtureId} mac={m} />
-          ))}
-        </ul>
-      ) : (
-        <div className="bos-durum">Bugün için uygun maç bulunamadı.</div>
-      )}
-    </div>
-  );
-}
-
 export default async function Page() {
   const veri = await kv.get("coupons:latest");
 
@@ -77,8 +26,9 @@ export default async function Page() {
           <h1 className="baslik">Bugünün kupon önerileri</h1>
           <p className="alt-baslik">
             Lig sıralamalarına göre otomatik olarak hazırlanan, üç risk
-            seviyesine ayrılmış tekli kupon önerileri. (Gerçek bahis oranı
-            değil, sıralama farkına dayalı istatistiksel bir yaklaşımdır.)
+            seviyesine ayrılmış tekli kupon önerileri. Bir kupona tıklayın,
+            analizi görün. (Gerçek bahis oranı değil, sıralama farkına dayalı
+            istatistiksel bir yaklaşımdır.)
           </p>
           {veri && (
             <p className="guncelleme-satiri">
@@ -96,26 +46,7 @@ export default async function Page() {
             görünecek.
           </div>
         ) : (
-          <div className="gruplar">
-            <Grup
-              baslik="Kasa"
-              aciklama="Lig sıralamasında büyük fark olan, net favori takımlardan oluşan seçimler."
-              renk="var(--kasa)"
-              maclar={veri.kasa}
-            />
-            <Grup
-              baslik="Orta Risk"
-              aciklama="Orta seviye sıralama farkı olan, dengeli seçimler."
-              renk="var(--orta)"
-              maclar={veri.ortaRisk}
-            />
-            <Grup
-              baslik="Yüksek Oran"
-              aciklama="Sıralaması birbirine yakın, sürpriz sonuç olasılığı taşıyan seçimler."
-              renk="var(--yuksek)"
-              maclar={veri.yuksekOran}
-            />
-          </div>
+          <KuponPanosu veri={veri} />
         )}
 
         <div className="alt-not">
